@@ -16,8 +16,13 @@ function setClock() {
     const hours = now.getHours();
     const hoursDegrees = ((hours / 12) * 360) + ((minutes / 60) * 30) + 90;
     hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
+
+    document.querySelector('.date').textContent = now.toLocaleString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+    document.querySelector('.time').textContent = now.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true });
 }
 
 setInterval(setClock, 1000);
 
 setClock();
+
+document.querySelector('.clock').style.display = 'inline-block';

@@ -1,56 +1,87 @@
 :root {
     --bg-color: #eee;
-    --clock-bg-color: #369;
-    --clock-border-color: #fff;
-    --clock-hands-color: var(--clock-border-color);
-    --clock-hour-hand-color: #ff6347;
-    --clock-minute-hand-color: #4682b4;
-    --clock-second-hand-color: #32cd32;
     --clock-size: 300px;
+    --clock-bg-color: #369;
+    --clock-date-color: gold;
+    --clock-border-color: #fff;
+    --clock-hour-hand-color: #ddd;
+    --clock-minute-hand-color: #eee;
+    --clock-second-hand-color: #fff;
+    --clock-time-color: var(--clock-date-color);
+    --clock-hands-color: var(--clock-border-color);
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: var(--bg-color);
     margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
 }
 
 .clock {
-    width: var(--clock-size);
+    display: none;
+    padding: 20px;
     aspect-ratio: 1;
-    border: 8px solid var(--clock-border-color);
     border-radius: 50%;
     position: relative;
-    padding: 20px;
+    width: var(--clock-size);
     background: var(--clock-bg-color);
-    box-shadow: 
-        0 0 0 4px rgba(0,0,0,0.1),
-        inset 0 0 0 3px #EFEFEF,
-        inset 0 0 10px black,
-        0 0 10px rgba(0,0,0,0.2);
+    border: 8px solid var(--clock-border-color);
+    box-shadow: 0 0 0 4px rgba(0,0,0,0.1), inset 0 0 0 3px #efefef, inset 0 0 10px black, 0 0 10px rgba(0,0,0,0.2);
 }
 
 .clock-face {
-    position: relative;
     width: 100%;
     height: 100%;
+    position: relative;
     transform: translateY(-3px); /* account for the height of the hands */
 }
 
+.date-time {
+    height: 100%;
+    display: flex;
+    font-size: 14px;
+    font-weight: bold;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.date,
+.time {
+    z-index: 1;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 1px #333;
+}
+
+.date {
+    padding-top: 50px;
+    justify-content: flex-start;
+    color: var(--clock-date-color);
+}
+
+.time {
+    padding-bottom: 50px;
+    justify-content: flex-end;
+    color: var(--clock-time-color);
+}
+
 .number {
-    position: absolute;
-    color: var(--clock-hands-color);
-    font-size: 1.5rem;
-    text-align: center;
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    font-size: 1.5rem;
+    text-align: center;
+    position: absolute;
     align-items: center;
+    justify-content: center;
     transform-origin: center;
+    color: var(--clock-hands-color);
 }
 
 .number1 { transform: rotate(300deg) translate(120px) rotate(-300deg); }
@@ -67,14 +98,15 @@ body {
 .number12  { transform: rotate(270deg) translate(120px) rotate(-270deg); }
 
 .hand {
+    top: 50%;
     width: 50%;
     background: black;
     position: absolute;
-    top: 50%;
+    transition: all 0.05s;
     transform-origin: 100%;
     transform: rotate(90deg);
+    border-radius: 100% 0 0 100%;
     transition-timing-function: cubic-bezier(0.4, 2.3, 0.3, 1);
-    transition: all 0.05s;
 }
 
 .hour-hand {
