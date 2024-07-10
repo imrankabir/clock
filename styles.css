@@ -1,0 +1,93 @@
+:root {
+    --bg-color: #eee;
+    --clock-bg-color: #369;
+    --clock-border-color: #fff;
+    --clock-hands-color: var(--clock-border-color);
+    --clock-hour-hand-color: #ff6347;
+    --clock-minute-hand-color: #4682b4;
+    --clock-second-hand-color: #32cd32;
+    --clock-size: 300px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--bg-color);
+    margin: 0;
+}
+
+.clock {
+    width: var(--clock-size);
+    aspect-ratio: 1;
+    border: 8px solid var(--clock-border-color);
+    border-radius: 50%;
+    position: relative;
+    padding: 20px;
+    background: var(--clock-bg-color);
+    box-shadow: 
+        0 0 0 4px rgba(0,0,0,0.1),
+        inset 0 0 0 3px #EFEFEF,
+        inset 0 0 10px black,
+        0 0 10px rgba(0,0,0,0.2);
+}
+
+.clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-3px); /* account for the height of the hands */
+}
+
+.number {
+    position: absolute;
+    color: var(--clock-hands-color);
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-origin: center;
+}
+
+.number1 { transform: rotate(300deg) translate(120px) rotate(-300deg); }
+.number2 { transform: rotate(330deg) translate(120px) rotate(-330deg); }
+.number3 { transform: rotate(360deg) translate(120px) rotate(-360deg); }
+.number4  { transform: rotate(30deg) translate(120px) rotate(-30deg); }
+.number5  { transform: rotate(60deg) translate(120px) rotate(-60deg); }
+.number6  { transform: rotate(90deg) translate(120px) rotate(-90deg); }
+.number7  { transform: rotate(120deg) translate(120px) rotate(-120deg); }
+.number8  { transform: rotate(150deg) translate(120px) rotate(-150deg); }
+.number9  { transform: rotate(180deg) translate(120px) rotate(-180deg); }
+.number10  { transform: rotate(210deg) translate(120px) rotate(-210deg); }
+.number11  { transform: rotate(240deg) translate(120px) rotate(-240deg); }
+.number12  { transform: rotate(270deg) translate(120px) rotate(-270deg); }
+
+.hand {
+    width: 50%;
+    background: black;
+    position: absolute;
+    top: 50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition-timing-function: cubic-bezier(0.4, 2.3, 0.3, 1);
+    transition: all 0.05s;
+}
+
+.hour-hand {
+    height: 6px;
+    background: var(--clock-hour-hand-color);
+}
+
+.minute-hand {
+    height: 4px;
+    background: var(--clock-minute-hand-color);
+}
+
+.second-hand {
+    height: 2px;
+    background: var(--clock-second-hand-color);
+}
