@@ -52,7 +52,6 @@ body {
 
 .date,
 .time {
-  z-index: 1;
   height: 50%;
   display: flex;
   align-items: center;
