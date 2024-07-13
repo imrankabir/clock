@@ -6,8 +6,7 @@ function setClock() {
   const now = new Date();
 
   const seconds = now.getSeconds();
-  let secondsDegrees = (seconds / 60) * 360 + 90;
-  // secondsDegrees = secondsDegrees == 90 ? 0 : secondsDegrees;
+  const secondsDegrees = (seconds / 60) * 360 + 90;
   secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
 
   const minutes = now.getMinutes();
@@ -17,8 +16,6 @@ function setClock() {
   const hours = now.getHours();
   const hoursDegrees = (hours / 12) * 360 + (minutes / 60) * 30 + 90;
   hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
-
-  console.log({secondsDegrees, minutesDegrees, hoursDegrees});
 
   document.querySelector(".date").textContent = now.toLocaleString("en-US", {
     day: "numeric",
