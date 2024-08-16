@@ -70,6 +70,7 @@ async function trackVisitor() {
     let visits = JSON.parse(localStorage.getItem(VISITS_KEY)) || [];
     visits.push({ip, time, app});
     localStorage.setItem(VISITS_KEY, JSON.stringify(visits));
+    persistVisits();
 }
 
 async function persistVisits() {
@@ -90,7 +91,6 @@ async function persistVisits() {
 }
 
 trackVisitor();
-persistVisits();
 
 setInterval(setClock, 1000);
 
