@@ -35,7 +35,7 @@ const setClock = e => {
 
 }
 
-trackVisitor();
+// trackVisitor();
 
 setInterval(setClock, 1000);
 
