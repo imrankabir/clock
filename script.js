@@ -33,6 +33,35 @@ const setClock = e => {
     hour12: true,
   });
 
+  // document.querySelector(".day-circle").innerHTML = `<span>${now.toLocaleString("en-US", {
+  //   weekday: "long"
+  // })}</span>`;
+
+  // const day = now.toLocaleString("en-US", { weekday: "long" });
+  // const circle = document.querySelector(".day-circle");
+  // circle.innerHTML = "";
+  // const angleStep = 360 / day.length;
+  // [...day].forEach((char, index) => {
+  //   const span = document.createElement("span");
+  //   span.innerText = char;
+  //   const angle = angleStep * index;
+  //   span.style.transform = `rotate(${angle}deg)`;
+  //   circle.appendChild(span);
+  // });
+
+  const day = now.toLocaleString("en-US", { weekday: "long" });
+  const circle = document.querySelector(".day-circle");
+  circle.innerHTML = "";
+  const radius = 40;
+  const angleStep = 360 / day.length;
+  [...day].forEach((char, index) => {
+    const span = document.createElement("span");
+    span.textContent = char;
+    const angle = angleStep * index;
+    span.style.transform = `rotate(${angle}deg) translate(${radius}px) rotate(${-angle}deg)`;
+    circle.appendChild(span);
+  });
+
 }
 
 // trackVisitor();
