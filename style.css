@@ -2,6 +2,7 @@
   --bg-color: #eee;
   --clock-size: 300px;
   --clock-bg-color: #369;
+  --clock-day-color: #abc;
   --clock-date-color: gold;
   --clock-border-color: #fff;
   --clock-hour-hand-color: #ddd;
@@ -16,7 +17,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--bg-color);
+  background: var(--bg-color);
 }
 .clock {
   display: none;
@@ -54,6 +55,7 @@ body {
 }
 .date {
   padding-top: 50px;
+  text-align: center;
   justify-content: flex-start;
   color: var(--clock-date-color);
 }
@@ -134,76 +136,12 @@ body {
 .center-dot {
   top: 50%;
   left: 50%;
+  width: 12px;
   z-index: 10;
-  width: 16px;
-  height: 16px;
+  height: 12px;
   position: absolute;
   border-radius: 50%;
-  background-color: gold;
   transform: translate(-50%, -50%);
+  background: var(--clock-hands-color);
   box-shadow: 0 0 5px rgba(255, 215, 0, 0.6);
-}
-/*.day-circle {
-  top: 50%;
-  left: 50%;
-  color: gold;
-  width: 100px;
-  height: 100px;
-  display: flex;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 50%;
-  position: absolute;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  text-shadow: 1px 1px 2px #000;
-  transform: translate(-50%, -50%);
-}
-.day-circle span {
-  display: inline-block;
-  transform: rotate(-90deg);
-  animation: spinText 60s linear infinite;
-}
-@keyframes spinText {
-  to { transform: rotate(270deg); }
-  from { transform: rotate(-90deg); }
-}*/
-/*.day-circle {
-  top: 50%;
-  left: 50%;
-  width: 120px;
-  height: 120px;
-  position: absolute;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-}
-.day-circle span {
-  top: 50%;
-  left: 50%;
-  color: gold;
-  font-size: 14px;
-  font-weight: bold;
-  position: absolute;
-  transform-origin: 0 60px;
-  text-shadow: 1px 1px 2px #000;
-}*/
-.day-circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-}
-.day-circle span {
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform-origin: center center;
-  color: gold;
-  font-weight: bold;
-  font-size: 14px;
-  text-shadow: 1px 1px 2px #000;
 }
